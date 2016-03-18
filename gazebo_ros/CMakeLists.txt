@@ -97,3 +97,15 @@ install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
   )
 
+# Tests
+if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(gazebo_ros-test
+                    test/gazebo_ros.test
+                    test/gazebo_ros_test.cpp)
+  target_link_libraries(gazebo_ros-test ${catkin_LIBRARIES})
+  add_rostest_gtest(gazebo_ros-test2
+                    test/gazebo_ros2.test
+                    test/gazebo_ros_test.cpp)
+  target_link_libraries(gazebo_ros-test2 ${catkin_LIBRARIES})
+endif()

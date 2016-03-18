@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- this world file doesn't exist, gazebo handles this poorly 
+  
+ [ INFO] /gazebo /home/lucasw/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/src/gazebo_ros_api_plugin.cpp:155 : Finished loading Gazebo ROS API Plugin.
+[ INFO] /gazebo /tmp/binarydeb/ros-jade-roscpp-1.11.16/src/libros/service.cpp:80 : waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...
+gzserver: /usr/include/boost/thread/pthread/recursive_mutex.hpp:101: boost::recursive_mutex::~recursive_mutex(): Assertion `!pthread_mutex_destroy(&m)' failed.
+Aborted (core dumped)
+[gazebo-2] process has died [pid 16643, exit code 134, cmd /home/lucasw/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/scripts/gzserver -r /home/lucasw/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/test/empty2.world __name:=gazebo __log:=/home/lucasw/.ros/log/1a07e234-efdc-11e5-962b-00dbdf11ceac/gazebo-2.log].
+log file: /home/lucasw/.ros/log/1a07e234-efdc-11e5-962b-00dbdf11ceac/gazebo-2*.log 
+  -->
+  <node name="gazebo" pkg="gazebo_ros" type="gzserver"
+      respawn="false" output="screen"
+      args="-r $(find gazebo_ros)/test/empty2.world" />
+
+  <!-- clear_params="true" -->
+</launch>
